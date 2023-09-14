@@ -84,4 +84,26 @@ class UserController extends Controller
     return redirect('/');
 
    }
+
+
+   public function getuserCart($userID)
+   {
+    $data = Cart::join('products','products.id','=','carts.productID')
+    ->select('carts.id','carts.qty','carts.created_at','products.name','products.price','products.category','products.gallery','products.description')
+    ->where('carts.userID',$userID)
+    ->get();
+
+    return $data;
+    
+
+   }
+
+   public function listcart()
+   {
+
+    $cartdata = $this->getuserCart(session('userID'));
+
+    return view('user.cartlist',['data'=>$cartdata]);
+
+   }
 }

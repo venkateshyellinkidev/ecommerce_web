@@ -39,6 +39,7 @@ Route::controller(UserController::class)->group(function(){     // user controll
     Route::get('user/viewProduct/{id}','viewProduct');
     Route::get('addtocart/{id}','addtocart');
     Route::get('logout','logout');
+    Route::get('/mycart','listcart');
 
 });
 
