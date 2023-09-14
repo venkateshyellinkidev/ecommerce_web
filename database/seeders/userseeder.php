@@ -18,10 +18,10 @@ class userseeder extends Seeder
     {
         $user = new User;
 
-        $user->name = "admin";
-        $user->email = "admin@gmail.com";
-        $user->number  = "964123570";
-        $user->userType = 1;
+        $user->name = "user";
+        $user->email = "user@gmail.com";
+        $user->number  = "8547126464";
+        $user->userType = 0;
         $user->password = Hash::make('123456');       
         $user->profile = "user.jpg";
         $user->save();

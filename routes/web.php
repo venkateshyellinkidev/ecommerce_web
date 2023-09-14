@@ -27,11 +27,18 @@ Route::controller(loginController::class)->group(function(){   // login controll
 
 Route::controller(AdminController::class)->group(function(){   // admin controller group
     Route::get('admin/dashboard','dashboard');
+    Route::get('admin/viewProduct/{id}','viewProduct');
+    Route::get('addtocart/{id}','addtocart');
+ 
+
 });
 
 Route::controller(UserController::class)->group(function(){     // user controller group
 
     Route::get('user/dashboard','dashboard');
+    Route::get('user/viewProduct/{id}','viewProduct');
+    Route::get('addtocart/{id}','addtocart');
+    Route::get('logout','logout');
 
 });
 
