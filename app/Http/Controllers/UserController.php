@@ -89,7 +89,7 @@ class UserController extends Controller
    public function getuserCart($userID)
    {
     $data = Cart::join('products','products.id','=','carts.productID')
-    ->select('carts.id','carts.qty','carts.created_at','products.name','products.price','products.category','products.gallery','products.description')
+    ->select('carts.id','carts.qty','carts.created_at','products.name','products.price','products.category','products.gallery','products.description','products.id as productID')
     ->where('carts.userID',$userID)
     ->get();
 
@@ -105,5 +105,27 @@ class UserController extends Controller
 
     return view('user.cartlist',['data'=>$cartdata]);
 
+   }
+
+   public function removeitem($id)
+   {
+  
+   $res=  Cart::destroy($id);
+   if($res)
+   {
+    return response()->json([
+        'status'=>200,
+        'data'=>'remove item successfully'
+    ]);
+
+   }
+   else
+   {
+    return response()->json([
+        'status'=>400,
+        'data'=>'remove item failed'
+    ]);
+   }
+   
    }
 }

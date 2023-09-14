@@ -38,6 +38,8 @@ Route::controller(UserController::class)->group(function(){     // user controll
     Route::get('user/dashboard','dashboard');
     Route::get('user/viewProduct/{id}','viewProduct');
     Route::get('addtocart/{id}','addtocart');
+    Route::get('removeitem/{id}','removeitem');
+
     Route::get('logout','logout');
     Route::get('/mycart','listcart');
 
